@@ -29,4 +29,4 @@ jobs:
         message: "upload"
         add: "*.csv"
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITEHUB_TOKEN }}
