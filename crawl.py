@@ -63,7 +63,7 @@ url ="https://linkmarket.aliyun.com/api/search/searchByConditions"
 pageNo = 1
 solutions = []
 while pageNo < 2:
-    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":10}  #pageSize<1000
+    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":100}  #pageSize<1000
     info = requests.get(url, data = data)
     a = json.loads(info.text)
     print ("pageNo=",pageNo)
@@ -96,13 +96,13 @@ df = pd.read_csv('./solution_ali.csv', sep=',')
 print (df.head(10))
 
 
-''''
+
 #遍历产品列表
 def get_f(row, s = "ali"):
 # for index,i in df.iterrows():
     index,i = row[0], row[1]
     print(i["title"])
-    file_dir = "/content/drive/My Drive/共享硬盘/solutions/"+s+"/" + str(i["title"]).replace("/","-")
+    file_dir = "./solution_ali/"+s+"/" + str(i["title"]).replace("/","-")
     if not os.path.isdir(file_dir):
         try:
             os.mkdir(file_dir)
@@ -126,4 +126,3 @@ def get_f(row, s = "ali"):
 
 pool = Pool(2)
 pool.map(get_f, df.head(10).iterrows())
-'''
