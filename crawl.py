@@ -5,9 +5,10 @@ import os, sys
 import pandas as pd
 pd.set_option('display.max_columns', None)
 
-'''
+
 #多线程
 from multiprocessing import Pool
+'''
 #链接谷歌云盘
 from google.colab import files
 from google.colab import drive
