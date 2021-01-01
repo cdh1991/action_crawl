@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pandas
+        pip install pandas,requests,json,re,time,urllib
     - name: crawl list to csv
       run: |
-        python crawl.py sdist bdist_wheel
+        python crawl.py 
