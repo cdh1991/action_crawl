@@ -21,4 +21,12 @@ jobs:
         pip install pandas requests BeautifulSoup4
     - name: crawl list to csv
       run: |
-        python crawl.py 
+        python crawl.py
+        # commit readme 文件
+    - name: Commit changes
+      uses: EndBug/add-and-commit
+      with:
+        message: "upload"
+        add: "*.csv"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
