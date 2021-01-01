@@ -99,16 +99,17 @@ print (df.head(10))
 
 
 #遍历产品列表
-def get_f(row, s = "ali"):
-# for index,i in df.iterrows():
-    index,i = row[0], row[1]
+# def get_f(row, s = "ali"):
+s = "ali"
+for index,i in df.iterrows():
+#     index,i = row[0], row[1]
     print(i["title"])
     file_dir = "./solution_ali/"+s+"/" + str(i["title"]).replace("/","-")
     if not os.path.isdir(file_dir):
         try:
             os.mkdir(file_dir)
         except:
-            return
+            continue
     #遍历文件中的产品列表
     file_url = i["pdfUrl"]
     file_name = i["title"]
@@ -120,10 +121,11 @@ def get_f(row, s = "ali"):
     except:
         print ("file url error")
         time.sleep(10)
-        return
-    return index
+        continue
+#     return index
 
 
-
+'''
 pool = Pool(2)
 pool.map(get_f, df.head(10).iterrows())
+'''
