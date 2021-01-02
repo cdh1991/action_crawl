@@ -64,7 +64,7 @@ url ="https://linkmarket.aliyun.com/api/search/searchByConditions"
 pageNo = 1
 solutions = []
 while pageNo < 2:
-    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":10}  #pageSize<1000
+    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":1000}  #pageSize<1000
     info = requests.get(url, data = data)
     a = json.loads(info.text)
     print ("pageNo=",pageNo)
