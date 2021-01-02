@@ -118,7 +118,7 @@ for index,i in df.iterrows():
     #遍历文件中的产品列表
     
     file_url = i["pdfUrl"]
-    file_name = i["title"]
+    file_name = i["title"] + ".pdf"
     try:
         print (index,file_url)
         download_file(file_url,file_name,file_dir)
