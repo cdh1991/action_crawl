@@ -100,32 +100,30 @@ print (df.head(10))
 
 #遍历产品列表
 # def get_f(row, s = "ali"):
-s = "ali"
+s = "./solution_ali/"
+if not os.path.isdir("./solution_ali/") :
+    os.mkdir(s)
+
+
 for index,i in df.iterrows():
 #     index,i = row[0], row[1]
-    print(i["title"])
-    file_dir = "./solution_ali/"+s+"/" + str(i["title"]).replace("/","-")
+    
+    file_dir = s + str(i["title"]).replace("/","-")
     if not os.path.isdir(file_dir):
         try:
             os.mkdir(file_dir)
-        except:
+        except Exception as e:
+            print(e)
             continue
     #遍历文件中的产品列表
+    
     file_url = i["pdfUrl"]
     file_name = i["title"]
-    print(index,file_url)
     try:
         print (index,file_url)
         download_file(file_url,file_name,file_dir)
         time.sleep(1)
-    except:
-        print ("file url error")
+    except Exception as e:
+        print(e)
         time.sleep(10)
         continue
-#     return index
-
-
-'''
-pool = Pool(2)
-pool.map(get_f, df.head(10).iterrows())
-'''
