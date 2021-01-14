@@ -35,6 +35,6 @@ jobs:
         API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
       with:
         source-directory: './'
-        destination-github-username: 'cpina'
-        destination-repository-name: 'cdh1991/solutions@solutions'
+        destination-github-username: 'cdh1991'
+        destination-repository-name: 'solutions@solutions'
         user-email: carles3@pina.cat
