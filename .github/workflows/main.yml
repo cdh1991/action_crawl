@@ -10,7 +10,13 @@ jobs:
   Crawl:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+
+    - name: Checkout tools repo
+      uses: actions/checkout@v2
+      with:
+        repository: cdh1991/solutions@code
+        path: ./
+      
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
