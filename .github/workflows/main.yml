@@ -16,7 +16,7 @@ jobs:
       with:
         repository: cdh1991/solutions
         token: ${{ secrets.TOKEN }}
-        path: ./
+        path: ./crawl.py
       
     - name: Set up Python
       uses: actions/setup-python@v2
