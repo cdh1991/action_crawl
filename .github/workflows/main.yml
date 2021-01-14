@@ -15,6 +15,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         repository: cdh1991/solutions@code
+        token: ${{ secrets.GITEHUB_TOKEN }}
         path: ./
       
     - name: Set up Python
