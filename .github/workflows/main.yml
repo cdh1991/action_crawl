@@ -29,11 +29,10 @@ jobs:
     - name: crawl list to csv
       run: |
         python crawl.py
-        # commit 文件
     - name: Commit changes
       uses: EndBug/add-and-commit@v6
       with:
         message: "upload"
         add: "*"
       env:
-        GITHUB_TOKEN: ${{ secrets.GITEHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
