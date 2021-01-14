@@ -36,5 +36,5 @@ jobs:
       with:
         source-directory: './'
         destination-github-username: 'cdh1991'
-        destination-repository-name: 'solutions@solutions'
+        destination-repository-name: 'solutions'
         user-email: carles3@pina.cat
