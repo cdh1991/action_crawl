@@ -29,10 +29,15 @@ jobs:
     - name: crawl list to csv
       run: |
         python crawl.py
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v6
+    - name: Commit files
+      run: |
+        git config --local user.email "zhangzhiwen91@gmail.com"
+        git config --local user.name "jast90"
+        git add .
+        git commit -m "`date '+%Y-%m-%d %H:%M:%S'`" #动态提交信息
+    # 推送到github仓库
+    - name: Push changes
+      uses: acdh1991/solutions@solutions
       with:
-        message: "upload"
-        add: "*"
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        github_token: ${{ secrets.TOKEN }}
+        branch: ${{ github.ref }}
