@@ -36,6 +36,7 @@ jobs:
       with:
         source_file: 'solutions'
         destination_repo: 'cdh1991/solutions'
+        destination_branch: 'solutions' 
         destination_folder: 'test-dir'
         user_email: 'example@email.com'
         user_name: 'cdh1991'
