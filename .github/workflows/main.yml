@@ -29,12 +29,14 @@ jobs:
     - name: crawl list to csv
       run: |
         python crawl.py
-    - name: Pushes to another repository
-      uses: cpina/github-action-push-to-another-repository@master
+    - name: Pushes test file
+      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
       env:
         API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
       with:
-        source-directory: './'
-        destination-github-username: 'cdh1991'
-        destination-repository-name: 'solutions'
-        user-email: 858600803@qq.com
+        source_file: 'solutions'
+        destination_repo: 'cdh1991/solutions'
+        destination_folder: 'test-dir'
+        user_email: 'example@email.com'
+        user_name: 'cdh1991'
+        commit_message: 'A custom message for the commit'
