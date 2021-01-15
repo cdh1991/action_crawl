@@ -37,7 +37,7 @@ jobs:
         source_file: 'solutions'
         destination_repo: 'cdh1991/solutions'
         destination_branch: 'solutions' 
-        destination_folder: 'test-dir'
+        destination_folder: './'
         user_email: 'example@email.com'
         user_name: 'cdh1991'
         commit_message: 'A custom message for the commit'
