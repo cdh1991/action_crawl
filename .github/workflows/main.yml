@@ -10,14 +10,7 @@ jobs:
   Crawl:
     runs-on: ubuntu-latest
     steps:
-
-    - name: Checkout tools repo
-      uses: actions/checkout@v2
-      with:
-        repository: cdh1991/solutions
-        token: ${{ secrets.TOKEN }}
-        path: ./
-      
+    - uses: actions/checkout@v2
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -29,15 +22,11 @@ jobs:
     - name: crawl list to csv
       run: |
         python crawl.py
-    - name: Pushes test file
-      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+        # commit 文件
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v6
       with:
-        source_file: 'solutions'
-        destination_repo: 'cdh1991/solutions'
-        destination_branch: 'solutions' 
-        destination_folder: './'
-        user_email: 'example@email.com'
-        user_name: 'cdh1991'
-        commit_message: 'A custom message for the commit'
+        message: "upload"
+        add: "*"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITEHUB_TOKEN }}
