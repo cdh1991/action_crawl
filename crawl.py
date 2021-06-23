@@ -66,6 +66,7 @@ solutions = []
 categoryIds = []
 for i in range(2):
     categoryIds.append(random.randint(0,7))
+    
 
 while pageNo < 2:
     data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":1000,"categoryIds":categoryIds}  #pageSize<1000
