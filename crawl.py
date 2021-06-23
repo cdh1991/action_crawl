@@ -1,6 +1,6 @@
 import requests, json,re, time,urllib
 from bs4 import BeautifulSoup as bs
-import os, sys
+import os, sys, random
 
 import pandas as pd
 pd.set_option('display.max_columns', None)
@@ -63,8 +63,12 @@ def get_ali_fileurl(id = 1001006541914027,type = "solution"):
 url ="https://linkmarket.aliyun.com/api/search/searchByConditions"
 pageNo = 1
 solutions = []
+categoryIds = []
+for i in range(2):
+    categoryIds.append(random.randint(0,7))
+
 while pageNo < 2:
-    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":1000}  #pageSize<1000
+    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":1000,"categoryIds":categoryIds}  #pageSize<1000
     info = requests.get(url, data = data)
     a = json.loads(info.text)
     print ("pageNo=",pageNo)
