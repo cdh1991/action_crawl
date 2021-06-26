@@ -63,13 +63,24 @@ def get_ali_fileurl(id = 1001006541914027,type = "solution"):
 url ="https://linkmarket.aliyun.com/api/search/searchByConditions"
 pageNo = 1
 solutions = []
-categoryIds = []
-for i in range(2):
-    categoryIds.append(random.randint(0,7))
-    
+categoryIds = [
+            [1, 11, 12], 
+            [1, 13], 
+            [1, 14], 
+            [1, 15, 16,17, 18, 19],
+            [2, 21, 22],
+            [2, 23, 24], 
+            [2, 25, 26, 27, 28],
+            [3, 31, 32, 33, 34, 35, 36, 37, 75],
+            [4, 41, 42, 43, 44, 45, 46, 47, 48, 49],
+            [5, 51, 52, 53, 54, 55, 56, 57, 58],
+            [6, 61, 62, 63, 64, 65],
+            [7, 71, 72, 73, 74],
+]
+
 
 while pageNo < 2:
-    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":1000,"categoryIds":categoryIds}  #pageSize<1000
+    data = {"targetTypes":["solution","hardware"],"pageNo":pageNo,"pageSize":1000,"categoryIds":categoryIds[random.randint(0, len(categoryIds)-1)]}  #pageSize<1000
     info = requests.get(url, data = data)
     a = json.loads(info.text)
     print ("pageNo=",pageNo)
